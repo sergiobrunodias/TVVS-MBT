@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React from 'react';
 import useKeyDown from '../utils/KeyEventListener'
 import Screen from '../components/Screen'
 
