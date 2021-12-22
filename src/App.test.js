@@ -52,6 +52,11 @@ describe('feedback app', () => {
           CLICK_BAD: 'form',
           CLOSE: 'closed',
           ESC: 'closed'
+        },
+        meta: {
+          test: ({ getByTestId }) => {
+            assert.ok(getByTestId('question-screen'));
+          }
         }
       },
       form: {
@@ -59,16 +64,33 @@ describe('feedback app', () => {
           SUBMIT: 'thanks',
           CLOSE: 'closed',
           ESC: 'closed'
+        },
+        meta: {
+          test: ({ getByTestId }) => {
+            assert.ok(getByTestId('form-screen'));
+          }
         }
       },
       thanks: {
         on: {
           CLOSE: 'closed',
           ESC: 'closed'
+        },
+        meta: {
+          test: ({ getByTestId }) => {
+            assert.ok(getByTestId('thanks-screen'));
+          }
         }
       },
       closed: {
-        type: 'final'
+        type: 'final',
+        meta: {
+          test: ({ queryByTestId }) => {
+            assert.isNull(getByTestId('question-screen'));
+            assert.isNull(getByTestId('form-screen'));
+            assert.isNull(getByTestId('thanks-screen'));
+          }
+        }
       }
     }
   });
@@ -113,6 +135,8 @@ describe('feedback app', () => {
     const testPlans = appModel.getSimplePathPlans();
 
     testPlans.forEach((plan) => {
+      console.log(plan.state)
+
       describe(plan.description, () => {
         afterEach(cleanup);
 
@@ -123,6 +147,10 @@ describe('feedback app', () => {
           });
         });
       });
+    });
+
+    it('should have full coverage', () => {
+      return appModel.testCoverage();
     });
   });
 });

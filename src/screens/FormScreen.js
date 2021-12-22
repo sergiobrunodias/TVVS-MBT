@@ -7,6 +7,7 @@ function FormScreen({ onSubmit, onClose }) {
 
   return (
     <Screen
+      testid="form-screen"
       onSubmit={e => {
         e.preventDefault();
         const { response } = e.target.elements;

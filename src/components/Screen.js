@@ -1,4 +1,4 @@
-function Screen({ children, onSubmit = undefined }) {
+function Screen({ children, onSubmit = undefined, testid }) {
     if (onSubmit) {
         return (
             <form onSubmit={onSubmit} className="screen">
@@ -6,7 +6,7 @@ function Screen({ children, onSubmit = undefined }) {
             </form>
         );
     }
-    return <section className="screen">{children}</section>;
+    return <section className="screen" data-testid={testid}>{children}</section>;
 }
 
 export default Screen;

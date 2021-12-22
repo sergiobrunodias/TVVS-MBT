@@ -6,7 +6,7 @@ function ThanksScreen({ onClose }) {
     useKeyDown('Escape', onClose);
 
     return (
-        <Screen>
+        <Screen testid="thanks-screen">
             <header>Thanks for your feedback.</header>
             <button title="close" onClick={onClose} />
         </Screen>

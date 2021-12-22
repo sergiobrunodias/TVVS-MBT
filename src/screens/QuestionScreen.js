@@ -6,7 +6,7 @@ function QuestionScreen({ onClickGood, onClickBad, onClose }) {
     useKeyDown('Escape', onClose);
 
     return (
-        <Screen>
+        <Screen testid="question-screen">
             <header>How was your experience?</header>
             <button onClick={onClickGood} data-variant="good">
                 Good
