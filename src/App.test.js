@@ -61,9 +61,14 @@ describe('feedback app', () => {
       },
       form: {
         on: {
-          SUBMIT: 'thanks',
+          SUBMIT: [
+            {
+              target: 'thanks',
+              cond: (_, e) => e.value.length
+            }
+          ],
           CLOSE: 'closed',
-          ESC: 'closed'
+          ESC: 'closed',
         },
         meta: {
           test: ({ getByTestId }) => {
@@ -86,9 +91,7 @@ describe('feedback app', () => {
         type: 'final',
         meta: {
           test: ({ queryByTestId }) => {
-            assert.isNull(getByTestId('question-screen'));
-            assert.isNull(getByTestId('form-screen'));
-            assert.isNull(getByTestId('thanks-screen'));
+            assert.isNull(queryByTestId('thanks-screen'));
           }
         }
       }
@@ -110,11 +113,13 @@ describe('feedback app', () => {
       }
     },
     SUBMIT: {
-      exec: ({ getByPlaceholderText }, event) => {
+      exec: async ({ getByPlaceholderText, getByText }, event) => {
         fireEvent.change(getByPlaceholderText('Complain here'), {
           target: { value: event.value }
         });
-      }
+        fireEvent.click(getByText('Submit'));
+      },
+      cases: [{ value: '', value: 'something' }]
     },
     CLOSE: {
       exec: ({ getByTitle }) => {
@@ -135,7 +140,6 @@ describe('feedback app', () => {
     const testPlans = appModel.getSimplePathPlans();
 
     testPlans.forEach((plan) => {
-      console.log(plan.state)
 
       describe(plan.description, () => {
         afterEach(cleanup);
