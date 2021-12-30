@@ -61,14 +61,9 @@ describe('feedback app', () => {
       },
       form: {
         on: {
-          SUBMIT: [
-            {
-              target: 'thanks',
-              cond: (_, e) => e.value.length
-            }
-          ],
+          SUBMIT: 'thanks',
           CLOSE: 'closed',
-          ESC: 'closed',
+          ESC: 'closed'
         },
         meta: {
           test: ({ getByTestId }) => {
@@ -91,6 +86,8 @@ describe('feedback app', () => {
         type: 'final',
         meta: {
           test: ({ queryByTestId }) => {
+            assert.isNull(queryByTestId('question-screen'));
+            assert.isNull(queryByTestId('form-screen'));
             assert.isNull(queryByTestId('thanks-screen'));
           }
         }
@@ -113,13 +110,9 @@ describe('feedback app', () => {
       }
     },
     SUBMIT: {
-      exec: async ({ getByPlaceholderText, getByText }, event) => {
-        fireEvent.change(getByPlaceholderText('Complain here'), {
-          target: { value: event.value }
-        });
+      exec: async ({ getByText }) => {
         fireEvent.click(getByText('Submit'));
-      },
-      cases: [{ value: '', value: 'something' }]
+      }
     },
     CLOSE: {
       exec: ({ getByTitle }) => {

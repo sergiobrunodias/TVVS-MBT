@@ -1,9 +1,9 @@
 import React, { useReducer, useEffect } from 'react';
 // import Screen from './components/Screen'
 
-// import ThanksScreen from './screens/ThanksScreen'
-// import QuestionScreen from './screens/QuestionScreen'
-// import FormScreen from './screens/FormScreen'
+import ThanksScreen from './screens/ThanksScreen'
+import QuestionScreen from './screens/QuestionScreen'
+import FormScreen from './screens/FormScreen'
 
 function feedbackReducer(state, event) {
   switch (state) {
@@ -64,79 +64,6 @@ export function Feedback() {
     default:
       return null;
   }
-}
-
-function useKeyDown(key, onKeyDown) {
-  useEffect(() => {
-    const handler = e => {
-      if (e.key === key) {
-        onKeyDown();
-      }
-    };
-
-    window.addEventListener('keydown', handler);
-
-    return () => window.removeEventListener('keydown', handler);
-  }, [onKeyDown, key]);
-}
-
-function FormScreen({ onSubmit, onClose }) {
-  useKeyDown('Escape', onClose);
-
-  return (
-    <form className="screen"
-      data-testid="form-screen"
-      onSubmit={e => {
-        e.preventDefault();
-        const { response } = e.target.elements;
-
-        onSubmit({
-          value: response
-        });
-      }}
-    >
-      <header>Care to tell us why?</header>
-      <textarea
-        name="response"
-        placeholder="Complain here"
-        onKeyDown={e => {
-          if (e.key === 'Escape') {
-            e.stopPropagation();
-          }
-        }}
-      />
-      <button>Submit</button>
-      <button title="close" type="button" onClick={onClose} />
-    </form>
-  );
-}
-
-function QuestionScreen({ onClickGood, onClickBad, onClose }) {
-  useKeyDown('Escape', onClose);
-
-  return (
-    <section data-testid="question-screen" className="screen">
-      <header>How was your experience?</header>
-      <button onClick={onClickGood} data-variant="good">
-        Good
-      </button>
-      <button onClick={onClickBad} data-variant="bad">
-        Bad
-      </button>
-      <button title="close" onClick={onClose} />
-    </section>
-  );
-}
-
-function ThanksScreen({ onClose }) {
-  useKeyDown('Escape', onClose);
-
-  return (
-    <section data-testid="thanks-screen" className="screen">
-      <header>Thanks for your feedback.</header>
-      <button title="close" onClick={onClose} />
-    </section>
-  );
 }
 
 export function App() {
