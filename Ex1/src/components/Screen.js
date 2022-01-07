@@ -1,9 +1,9 @@
 function Screen({ children, onSubmit = undefined, testid }) {
     if (onSubmit) {
         return (
-            <form onSubmit={onSubmit} className="screen">
+            <section onSubmit={onSubmit} className="screen">
                 {children}
-            </form>
+            </section>
         );
     }
     return <section className="screen" data-testid={testid}>{children}</section>;

@@ -1,5 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
-// import Screen from './components/Screen'
+import React, { useReducer } from 'react';
 
 import ThanksScreen from './screens/ThanksScreen'
 import QuestionScreen from './screens/QuestionScreen'
