@@ -29,11 +29,11 @@ const stateMachine = createMachine(
                 },
                 meta: { // The 'meta' property contains additional information about the state.
 
-                    test: ({ getByTestId }) => { // The 'test' property contains a function that is executed when the state is reached.
+                    test: ({ queryByTestId }) => { // The 'test' property contains a function that is executed when the state is reached.
 
-                        // The 'getByTestId' function is provided by the '@testing-library/react' library. It allows to get elements by their 'data-testid' attribute.
+                        // The 'queryByTestId' function is provided by the '@testing-library/react' library. It allows to get elements by their 'data-testid' attribute.
                         // If the test is not found, the function will throw an error and the test will fail.
-                        assert.ok(getByTestId('nextState-screen'));
+                        assert.ok(queryByTestId('nextState-screen'));
 
                         // The 'queryByTestId' function allows to find elements by their 'data-testid' attribute and returns null if the element is not found.
                         // It is useful to check if an element is not present in the DOM.

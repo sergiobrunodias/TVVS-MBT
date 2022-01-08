@@ -6,6 +6,12 @@ import { render, fireEvent, cleanup } from '@testing-library/react';
 import { assert } from 'chai';
 
 /**
+ * Manual testing.
+ */
+
+// TODO (Ex 1a)
+
+/**
  * Model-based testing.
  */
 describe('feedback app', () => {
@@ -15,14 +21,14 @@ describe('feedback app', () => {
    */
   const feedbackMachine = createMachine({
     id: 'feedback',
-    // TODO (Ex 1)
+    // TODO (Ex 1b-ii)
   });
 
   /**
    * Creating the app model, which includes the state machine defined above and the programmatic definition for each event.
    */
   const appModel = createModel(feedbackMachine).withEvents({
-    // TODO (Ex 1)
+    // TODO (Ex 1b-i)
   });
 
   /**
@@ -45,8 +51,12 @@ describe('feedback app', () => {
       });
     });
 
+    // TODO (Ex 1b-iii) - uncomment the code snippet below
+
+    /* 
     it('should have full coverage', () => {
       return appModel.testCoverage();
-    });
+    }); 
+    */
   });
 });

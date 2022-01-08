@@ -24,8 +24,8 @@ describe('feedback app', () => {
           CLOSE: 'closed'
         },
         meta: {
-          test: ({ getByTestId }) => {
-            assert.ok(getByTestId('question-screen')); 
+          test: ({ queryByTestId }) => {
+            assert.ok(queryByTestId('question-screen')); 
           }
         }
       },

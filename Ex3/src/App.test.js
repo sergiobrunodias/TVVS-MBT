@@ -25,8 +25,8 @@ describe('feedback app', () => {
           // TODO (Ex 3)
         },
         meta: {
-          test: ({ getByTestId }) => {
-            assert.ok(getByTestId('question-screen'));
+          test: ({ queryByTestId }) => {
+            assert.ok(queryByTestId('question-screen'));
           }
         }
       },
@@ -37,8 +37,8 @@ describe('feedback app', () => {
           // TODO (Ex 3)
         },
         meta: {
-          test: ({ getByTestId }) => {
-            assert.ok(getByTestId('form-screen'));
+          test: ({ queryByTestId }) => {
+            assert.ok(queryByTestId('form-screen'));
           }
         }
       },
@@ -48,8 +48,8 @@ describe('feedback app', () => {
           // TODO (Ex 3)
         },
         meta: {
-          test: ({ getByTestId }) => {
-            assert.ok(getByTestId('thanks-screen'));
+          test: ({ queryByTestId }) => {
+            assert.ok(queryByTestId('thanks-screen'));
           }
         }
       },
