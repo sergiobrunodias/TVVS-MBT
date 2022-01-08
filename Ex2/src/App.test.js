@@ -15,29 +15,29 @@ describe('feedback app', () => {
    */
   const feedbackMachine = createMachine({
     id: 'feedback',
-    initial: 'question', 
-    states: { 
+    initial: 'question',
+    states: {
       question: {
-        on: { 
-          CLICK_GOOD: 'closed', // TODO (Ex 2)
-          CLICK_BAD: 'closed', // TODO (Ex 2)
+        on: {
+          CLICK_GOOD: 'closed', // TODO (Ex 2a-4)
+          CLICK_BAD: 'closed', // TODO (Ex 2a-4)
           CLOSE: 'closed'
         },
         meta: {
           test: ({ queryByTestId }) => {
-            assert.ok(queryByTestId('question-screen')); 
+            assert.ok(queryByTestId('question-screen'));
           }
         }
       },
       closed: {
         type: 'final',
-        meta: { 
-          test: ({ queryByTestId }) => { // Tests to be executed while in the 'question' state
+        meta: {
+          test: ({ queryByTestId }) => {
             assert.isNull(queryByTestId('question-screen'));
           }
         }
       },
-      // TODO (Ex 2)
+      // TODO (Ex 2a-3)
     }
   });
 
@@ -60,7 +60,7 @@ describe('feedback app', () => {
         fireEvent.click(getByTitle('close'));
       }
     },
-    // TODO (Ex 2)
+    // TODO (Ex 2a-1)
   });
 
   /**

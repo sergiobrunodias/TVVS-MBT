@@ -2,10 +2,8 @@ import React from 'react';
 import Screen from '../components/Screen'
 
 function QuestionScreen({ onClickGood, onClickBad, onClose }) {
-    // TODO (Ex 3)
-    
     return (
-        <Screen testid="question-screen">
+        <Screen testid="question-screen" onClose={onClose}>
             <header>How was your experience?</header>
             <button onClick={onClickGood} data-variant="good">
                 Good

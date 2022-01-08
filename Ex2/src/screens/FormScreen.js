@@ -2,8 +2,6 @@ import React from 'react';
 import Screen from '../components/Screen'
 
 function FormScreen({ onSubmit, onClose }) {
-  // TODO (Ex 3)
-  
   return (
     <Screen
       onSubmit={e => {
@@ -14,6 +12,7 @@ function FormScreen({ onSubmit, onClose }) {
           value: response
         });
       }}
+      onClose={onClose}
     >
       <form data-testid="form-screen">
         <header>Care to tell us why?</header>
