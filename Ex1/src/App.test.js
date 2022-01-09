@@ -6,42 +6,6 @@ import { render, fireEvent, cleanup } from '@testing-library/react';
 import { assert } from 'chai';
 
 /**
- * Manual testing.
- */
-
-describe('manual tests', () => {
-
-  // TODO (Ex 1a-i)
-  it('When "Good" is clicked, the question screen should close', () => {
-    const { /* Function(s) to be used */ } = render(<Feedback />);
-    assert.ok(/* TODO */);
-
-    // The 'question screen' should appear at first and...
-
-    // ... once the 'Good' button is clicked...
-
-    // ... the question screen should close.
-
-  });
-
-  // TODO (Ex 1a-ii)
-  it('When "Bad" is clicked, the question screen should close', () => {
-    const { /* Function(s) to be used */ } = render(<Feedback />);
-    assert.ok(/* TODO */);
-
-  });
-
-  // TODO (Ex 1a-iii)
-  it('When "Close button" is clicked, the question screen should close', () => {
-    const { /* Function(s) to be used */ } = render(<Feedback />);
-    assert.ok(/* TODO */);
-
-
-  });
-
-});
-
-/**
  * Model-based testing.
  */
 describe('feedback app', () => {

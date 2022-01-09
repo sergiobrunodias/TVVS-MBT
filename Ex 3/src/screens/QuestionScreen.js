@@ -2,8 +2,7 @@ import React from 'react';
 import Screen from '../components/Screen'
 
 function QuestionScreen({ onClickGood, onClickBad, onClose }) {
-    // TODO (Ex 3)
-    
+
     return (
         <Screen testid="question-screen">
             <header>How was your experience?</header>

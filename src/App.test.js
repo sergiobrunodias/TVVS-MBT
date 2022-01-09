@@ -110,7 +110,7 @@ describe('feedback app', () => {
       }
     },
     SUBMIT: {
-      exec: async ({ getByText }) => {
+      exec: ({ getByText }) => {
         fireEvent.click(getByText('Submit'));
       }
     },
