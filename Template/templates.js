@@ -29,14 +29,18 @@ const stateMachine = createMachine(
                 },
                 meta: { // The 'meta' property contains additional information about the state.
 
-                    test: ({ queryByTestId }) => { // The 'test' property contains a function that is executed when the state is reached.
+                    test: ({ getByTestId, queryByTestId }) => { // The 'test' property contains a function that is executed when the state is reached.
 
-                        // The 'queryByTestId' function is provided by the '@testing-library/react' library. It can be used to get DOM elements by their 'data-testid' attribute.
+                        // The 'getByTestId' function is provided by the '@testing-library/react' library.
+                        // It can be used to get DOM elements by their 'data-testid' attribute. 
+                        // In our case, we are passing the 'data-testid' as 'testid' to the 'Screen' component.
+
                         // If the element is not found, the function will throw an error and the test will fail.
-                        assert.ok(queryByTestId('nextState-screen'));
+                        assert.ok(getByTestId('initialState-screen'));
 
                         // The 'assert.isNull' is useful to check if an element is not present in the DOM.
-                        assert.isNull(queryByTestId('nextState-screen'));
+                        // In this case, it is better to use the 'queryByTestId' function instead, since it returns null if the element is not found.
+                        assert.isNull(queryByTestId('initialState-screen'));
                     }
                 }
             },
@@ -58,6 +62,7 @@ const stateMachine = createMachine(
 const appModel = createModel(stateMachine).withEvents({
     ACTION_NAME: {
         exec: ({ getByText }) => {
+            // The 'getByTitle' function might be useful to get DOM elements by their 'title' attribute.
             fireEvent.click(getByText('buttonText'));
         }
     }
