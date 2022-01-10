@@ -19,13 +19,37 @@ describe('feedback app', () => {
     states: {
       question: {
         on: {
-          CLICK_GOOD: 'closed', // TODO (Ex 2a-4)
-          CLICK_BAD: 'closed', // TODO (Ex 2a-4)
-          CLOSE: 'closed'
+          CLICK_GOOD: 'thanks', // TODO (Ex 2a-4)
+          CLICK_BAD: 'form', // TODO (Ex 2a-4)
+          CLOSE: 'closed',
+          ESC: 'closed'
         },
         meta: {
           test: ({ queryByTestId }) => {
             assert.ok(queryByTestId('question-screen'));
+          }
+        }
+      },
+      form: {
+        on: {
+          CLOSE: 'closed',
+          SUBMIT: 'thanks',
+          ESC: 'closed'
+        },
+        meta: {
+          test: ({ queryByTestId }) => {
+            assert.ok(queryByTestId('form-screen'));
+          }
+        }
+      },
+      thanks: {
+        on: {
+          CLOSE: 'closed',
+          ESC: 'closed'
+        },
+        meta: {
+          test: ({ queryByTestId }) => {
+            assert.ok(queryByTestId('thanks-screen'));
           }
         }
       },
@@ -34,6 +58,9 @@ describe('feedback app', () => {
         meta: {
           test: ({ queryByTestId }) => {
             assert.isNull(queryByTestId('question-screen'));
+            assert.isNull(queryByTestId('thanks-screen'));
+            assert.isNull(queryByTestId('form-screen'));
+
           }
         }
       },
@@ -60,6 +87,16 @@ describe('feedback app', () => {
         fireEvent.click(getByTitle('close'));
       }
     },
+    SUBMIT: {
+      exec: ({ getByText }) => {
+        fireEvent.click(getByText('Submit'));
+      }
+    },
+    ESC: {
+      exec: ({ baseElement }) => {
+        fireEvent.keyDown(baseElement, { key: 'Escape' });
+      }
+    }
     // TODO (Ex 2a-1)
   });
 
