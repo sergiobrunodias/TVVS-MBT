@@ -21,22 +21,21 @@ it('When "Good" is clicked, the Thanks screen should appear', () => {
 const stateMachine = createMachine(
     {
         id: 'stateMachineId',
-        initial: 'initialState', // Initial state, in our app 'question'
+        initial: 'initialState', // Initial state
         states: { // Each key of 'states' represents a state of the app.
             initialState: {
                 on: { // The 'on' property contains all the possible transitions from a given state.
-                    ACTION_NAME: 'nextState' // For example, it is possible to move from the state 'question' to the state 'thanks' by clicking the 'good button'.
+                    ACTION_NAME: 'nextState' // Defines that it is possible to move from the state 'initialState' to the state 'nextState' by executing the 'ACTION_NAME' action.
                 },
                 meta: { // The 'meta' property contains additional information about the state.
 
                     test: ({ queryByTestId }) => { // The 'test' property contains a function that is executed when the state is reached.
 
-                        // The 'queryByTestId' function is provided by the '@testing-library/react' library. It allows to get elements by their 'data-testid' attribute.
-                        // If the test is not found, the function will throw an error and the test will fail.
+                        // The 'queryByTestId' function is provided by the '@testing-library/react' library. It can be used to get DOM elements by their 'data-testid' attribute.
+                        // If the element is not found, the function will throw an error and the test will fail.
                         assert.ok(queryByTestId('nextState-screen'));
 
-                        // The 'queryByTestId' function allows to find elements by their 'data-testid' attribute and returns null if the element is not found.
-                        // It is useful to check if an element is not present in the DOM.
+                        // The 'assert.isNull' is useful to check if an element is not present in the DOM.
                         assert.isNull(queryByTestId('nextState-screen'));
                     }
                 }
