@@ -19,8 +19,8 @@ describe('feedback app', () => {
     states: {
       question: {
         on: {
-          CLICK_GOOD: 'closed', // TODO (Ex 2a-4)
-          CLICK_BAD: 'closed', // TODO (Ex 2a-4)
+          CLICK_GOOD: 'closed', // TODO (Ex 2a-iv)
+          CLICK_BAD: 'closed', // TODO (Ex 2a-iv)
           CLOSE: 'closed'
         },
         meta: {
@@ -37,7 +37,7 @@ describe('feedback app', () => {
           }
         }
       },
-      // TODO (Ex 2a-3)
+      // TODO (Ex 2a-iii)
     }
   });
 
@@ -60,7 +60,7 @@ describe('feedback app', () => {
         fireEvent.click(getByTitle('close'));
       }
     },
-    // TODO (Ex 2a-1)
+    // TODO (Ex 2a-i)
   });
 
   /**

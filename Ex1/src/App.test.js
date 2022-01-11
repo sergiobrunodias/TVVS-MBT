@@ -15,14 +15,14 @@ describe('feedback app', () => {
    */
   const feedbackMachine = createMachine({
     id: 'feedback',
-    // TODO (Ex 1b-ii)
+    // TODO (Ex 1-ii)
   });
 
   /**
    * Creating the app model, which includes the state machine defined above and the programmatic definition for each event.
    */
   const appModel = createModel(feedbackMachine).withEvents({
-    // TODO (Ex 1b-i)
+    // TODO (Ex 1-i)
   });
 
   /**
@@ -45,7 +45,7 @@ describe('feedback app', () => {
       });
     });
 
-    // TODO (Ex 1b-iii) - uncomment the code snippet below
+    // TODO (Ex 1-iii) - uncomment the code snippet below
 
     /* 
     it('should have full coverage', () => {
