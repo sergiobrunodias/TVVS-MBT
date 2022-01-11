@@ -85,8 +85,6 @@ describe('feedback app', () => {
       });
     });
 
-    // TODO (Ex 1b-iii) - uncomment the code snippet below
-
     it('should have full coverage', () => {
       return appModel.testCoverage();
     });

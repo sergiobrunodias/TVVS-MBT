@@ -19,8 +19,8 @@ describe('feedback app', () => {
     states: {
       question: {
         on: {
-          CLICK_GOOD: 'thanks', // TODO (Ex 2a-4)
-          CLICK_BAD: 'form', // TODO (Ex 2a-4)
+          CLICK_GOOD: 'thanks',
+          CLICK_BAD: 'form',
           CLOSE: 'closed',
           ESC: 'closed'
         },
@@ -64,7 +64,7 @@ describe('feedback app', () => {
           }
         }
       },
-      // TODO (Ex 2a-3)
+
     }
   });
 
@@ -97,7 +97,6 @@ describe('feedback app', () => {
         fireEvent.keyDown(baseElement, { key: 'Escape' });
       }
     }
-    // TODO (Ex 2a-1)
   });
 
   /**

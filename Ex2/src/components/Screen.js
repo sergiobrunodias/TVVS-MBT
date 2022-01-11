@@ -3,7 +3,6 @@ import useKeyDown from '../utils/KeyEventListener'
 
 function Screen({ children, onSubmit, onClose, testid }) {
 
-    // TODO (Ex 2b) - uncomment the statement below
     useKeyDown('Escape', onClose);
 
     if (onSubmit) {
